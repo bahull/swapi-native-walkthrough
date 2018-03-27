@@ -10,8 +10,12 @@ import AppDetails from "./../components/AppDetails";
 export const Chars = StackNavigator({
   Characters: {
     screen: AllCharacters,
-    navigationOptions: ({ navigation }) => {
-      title: "Characters";
+    navigationOptions: {
+      title: "Characters",
+      tabBarOnPress: (scene, jumpToIndex) => {
+        console.log("onPress:", scene, jumpToIndex);
+        scene.jumpToIndex(scene.scene.index);
+      }
     }
   },
   ChararDetails: {

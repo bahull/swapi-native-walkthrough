@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text, ScrollView } from "react-native";
 import { List, ListItem } from "react-native-elements";
+import { withNavigationFocus } from "react-navigation";
+
 import axios from "axios";
 
 class AllCharacters extends Component {
@@ -11,15 +13,32 @@ class AllCharacters extends Component {
     };
   }
   componentDidMount() {
+    console.log("RERENDEREd");
     axios.get("https://swapi.co/api/people").then(resp => {
       this.setState({ chars: resp.data.results });
     });
+    // axios.get("http://localhost:3001/native");
   }
   onLearnMore(char) {
     this.props.navigation.navigate("ChararDetails", char);
   }
+  componentWillReceiveProps() {
+    console.log("Recieve props fired");
+    axios.get("https://swapi.co/api/people").then(resp => {
+      this.setState({ chars: resp.data.results });
+    });
+  }
+
+  // static navigationProps = {
+  //   header: ({ state }) => {
+  //     return {
+  //       title: state.params.myTitle
+  //     };
+  //   }
+  // };
 
   render() {
+    console.log(this.props);
     return (
       <ScrollView style={style.container}>
         <List>
@@ -43,4 +62,4 @@ const style = StyleSheet.create({
   }
 });
 
-export default AllCharacters;
+export default withNavigationFocus(AllCharacters);

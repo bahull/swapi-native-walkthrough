@@ -4,7 +4,7 @@ import { RootRouter } from "./src/router/router";
 import Styling from "./src/components/Styling";
 
 export default function App() {
-  return <Styling />;
+  return <RootRouter />;
 }
 
 const styles = StyleSheet.create({
