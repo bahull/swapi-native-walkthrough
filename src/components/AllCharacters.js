@@ -21,7 +21,7 @@ class AllCharacters extends Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={style.container}>
         <List>
           {this.state.chars.length >= 1 &&
             this.state.chars.map((curr, item) => (

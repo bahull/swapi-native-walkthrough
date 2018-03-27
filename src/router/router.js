@@ -10,8 +10,8 @@ import AppDetails from "./../components/AppDetails";
 export const Chars = StackNavigator({
   Characters: {
     screen: AllCharacters,
-    navigationOptions: {
-      title: "Characters"
+    navigationOptions: ({ navigation }) => {
+      title: "Characters";
     }
   },
   ChararDetails: {
@@ -34,25 +34,15 @@ export const RootRouter = TabNavigator({
   AllChar: {
     screen: Chars,
     navigationOptions: {
-      //   tabBarLabel: "Characters",
-      tabBarIcon: ({ tintColor }) => (
-        <Icon name="list" size={35} color={tintColor} />
-      )
+      tabBarLabel: "Characters",
+      tabBarIcon: () => <Icon name="list" size={35} color={"blue"} />
     }
   },
   AddDetails: {
     screen: AppDeets,
     navigationOptions: {
       tabBarLabel: "App Details",
-      tabBarIcon: ({ tintColor }) => (
-        <Icon name="account-circle" size={35} color={tintColor} />
-      )
+      tabBarIcon: () => <Icon name="account-circle" size={35} color={"blue"} />
     }
   }
 });
-
-// export const RootRouter = StackNavigator({
-//   Tabs: {
-//     screen: Tabs
-//   }
-// });
