@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { RootRouter } from "./src/router/router";
-import Styling from "./src/components/Styling";
 
 export default function App() {
   return <RootRouter />;
